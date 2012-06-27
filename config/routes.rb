@@ -1,4 +1,7 @@
 TwitterResearch::Application.routes.draw do
+
+  root(:to => 'searches#index') #setting up root index action
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
