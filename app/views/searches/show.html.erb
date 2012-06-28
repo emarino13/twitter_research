@@ -1,13 +1,14 @@
-<h1>You searched for <%= params[:q] %><h1>
+<h1>You searched for: <div> <%=params[:q] %><div><h1>
 
     <pre>
       <%= @results.inspect %>
     </pre>
 
-    <ul>
+    <ol>
       <% @results['results'].each do |r|%>
-        <li><%= r['text'] %></li>
+        <li><img src="<%=r['profile_image_url']%>" height = "42", width = "42"/>
+        <%= r['from_user']%>:<div> <%=r['text']%><div></li>
       <% end %>
-    </ul>
+    </ol>
 
 
