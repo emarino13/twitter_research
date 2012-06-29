@@ -1,14 +1,9 @@
 <h1>You searched for: <div> <%=params[:q] %><div><h1>
 
-    <pre>
-      <%= @results.inspect %>
-    </pre>
-
     <ol>
-      <% @results['results'].each do |r|%>
-        <li><img src="<%=r['profile_image_url']%>" height = "42", width = "42"/>
-        <%= r['from_user']%>:<div> <%=r['text']%><div></li>
+      <% @results.each do |r|%>
+        <li><img src="<%=r.user_image_url%>" height = "42", width = "42"/>
+        <%= r.user%>:<div> <%=r.text%><div> Date & Time: <%=r.time_stamp%></li>
       <% end %>
     </ol>
-
 
