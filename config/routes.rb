@@ -1,5 +1,7 @@
 TwitterResearch::Application.routes.draw do
 
+  devise_for :users
+
   root(:to => 'searches#index') #setting up root index action
   resources(:searches)
 
