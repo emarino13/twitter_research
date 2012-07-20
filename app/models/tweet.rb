@@ -11,10 +11,31 @@ class Tweet < ActiveRecord::Base
 
   def suggested_categories
     categories = Category.all.map(&:title).map(&:downcase)
-    tweet = tweeted_text.gsub(/#/, '').downcase.split.sort
+    tweet = tweeted_text.gsub(/[^\w\s]/, ' ').downcase.split.sort
     same = tweet & categories
     same.map(&:capitalize).sort.join(', ')
+  end
+
+  ###########################################
+#Returns a comma separated string of the current category titles.
+  def categories_as_string
+    categories.map(&:title).sort.join(', ')
+
+  end
+  ##################################################
+  #Given a comma separated string of category titles, reset the categories
+  #for this tweet to the categories in the string.
+  def categories_as_string= (new_categories)
+    categories.clear
+
+    new_categories.split(/\s*, \s*/).each do |title|
+      cat = Category.where('LOWER(title) = ?', title.downcase).first
+      categories << cat if !cat.nil?
+      #if !cat.nil?
+      # categories << cat
+
     end
+  end
 
   end
 
