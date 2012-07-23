@@ -1,10 +1,12 @@
 class Tweet < ActiveRecord::Base
-  attr_accessible(:twitter_user, :tweeted_text, :tweeted_at, :user_id)
+  attr_accessible(:twitter_user, :tweeted_text, :tweeted_at)
+  #allows mass assignment. never put a foriegn key in here.
+  #only what you want a user to be able to use
 
   validates(:twitter_user, :presence =>true)
   validates(:tweeted_text, :presence =>true)
   validates(:tweeted_at, :presence => true)
-  validates(:user_id, :presence => true)
+  #validates(:user_id, :presence => true)
 
   belongs_to(:user)
   has_and_belongs_to_many(:categories)
