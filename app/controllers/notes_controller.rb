@@ -5,39 +5,39 @@ class NotesController < ApplicationController
 
   def index
     @notes = @tweet.notes.order('created_at desc')
-    respond_with(@tweet, @notes, location: tweet_url(@tweet))
+    respond_with([@tweet, @notes], location: tweet_url(@tweet))
   end
 
   def show
     # @note = @tweet.notes.find(params[:id])
-    respond_with(@tweet, @note, location: tweet_url(@tweet))
+    respond_with([@tweet, @note], location: tweet_url(@tweet))
   end
 
   def new
     @note = @tweet.notes.build
-    respond_with(@tweet, @note)
+    respond_with([@tweet, @note])
   end
 
   def create
     @note = @tweet.notes.create(params[:note])
-    respond_with(@tweet, @note)
+    respond_with([@tweet, @note], location: tweet_url(@tweet))
   end
 
   def edit
     # @note = @tweet.notes.find(params[:id])
-    respond_with(@tweet, @note)
+    respond_with([@tweet, @note])
   end
 
   def update
     # @note = @tweet.notes.find(params[:id])
     @note.update_attributes(params[:note])
-    respond_with(@tweet, @note)
+    respond_with([@tweet, @note])
   end
 
   def destroy
     # @note = @tweet.notes.find(params[:id])
     @note.destroy
-    respond_with(@tweet, @note)
+    respond_with([@tweet, @note])
   end
 
   #########################################################################
