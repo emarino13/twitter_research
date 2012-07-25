@@ -8,7 +8,9 @@ class Tweet < ActiveRecord::Base
   validates(:tweeted_at, :presence => true)
   #validates(:user_id, :presence => true)
 
+  scope(:with_notes, includes(:notes).order('notes.created_at desc'))
   belongs_to(:user)
+  has_many(:notes)
   has_and_belongs_to_many(:categories)
 
   def suggested_categories
@@ -27,7 +29,8 @@ class Tweet < ActiveRecord::Base
   ##################################################
   #Given a comma separated string of category titles, reset the categories
   #for this tweet to the categories in the string.
-  def categories_as_string= (new_categories)
+
+  def categories_as_string=(new_categories)
     categories.clear
 
     new_categories.split(/\s*, \s*/).each do |title|
