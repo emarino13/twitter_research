@@ -1,0 +1,13 @@
+<h1>Categories</h1>
+
+<ul>
+  <% @categories.each do |c| %>
+    <li>
+    <%= link_to(c.title, cateogory_url(c))%>
+    <%= link_to('Edit', edit_category_url(c)) %>
+    <%= link_to('Delete', category_url(c)),
+        :method => :delete,
+        :confirm => 'Are you sure?') %>
+    </li>
+  <% end %>
+  </ul>

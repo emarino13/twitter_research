@@ -1,0 +1,13 @@
+<%= form_for(@tweet) do |form| %>
+  <fieldset>
+    <!-- Hi, I'm app/views/tweets/edit.html.erb -->
+    <legend>Edit a Tweet's Categories</legend>
+
+    <div>
+      <%= form.label(:categories_as_string, 'Categories')%>
+      <%= form.text.field(:categoreis_as_string)%>
+      </div>
+
+    <%= form.submit%>
+    </fieldset>
+<% end %>

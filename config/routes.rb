@@ -6,6 +6,7 @@ TwitterResearch::Application.routes.draw do
   resources(:searches)
   resources(:tweets) do
     resources(:notes)
+    resources(:categories)
     end
 
   # The priority is based upon order of creation:
