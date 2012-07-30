@@ -6,19 +6,19 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @category = Category.includes(:tweet).
+    @category = Category.includes(:tweets).
       order('tweets.tweeted_at desc').find(params[:id])
     respond_with(@category)
   end
 
   def new
     @category = Category.new
-    respond_with(@cateogry)
+    respond_with(@category)
   end
 
   def create
     @category = Category.create(params[:category])
-    respond_with(@category)
+    respond_with(@category, location: categories_url)
   end
 
   def edit
@@ -29,7 +29,7 @@ class CategoriesController < ApplicationController
   def update
     @category = Category.find(params[:id])
     @category.update_attributes(params[:category])
-    respond_with(@category)
+    respond_with(@category, location: categories_url)
   end
 
   def destroy

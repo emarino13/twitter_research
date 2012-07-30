@@ -1,5 +1,5 @@
 class Tweet < ActiveRecord::Base
-  attr_accessible(:twitter_user, :tweeted_text, :tweeted_at)
+  attr_accessible(:twitter_user, :tweeted_text, :tweeted_at, :categories_as_string)
   #allows mass assignment. never put a foriegn key in here.
   #only what you want a user to be able to use
 

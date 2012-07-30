@@ -5,9 +5,17 @@
 
     <div>
       <%= form.label(:categories_as_string, 'Categories')%>
-      <%= form.text.field(:categoreis_as_string)%>
-      </div>
+      <%= form.text_field(:categoreis_as_string)%>
+    </div>
 
     <%= form.submit%>
-    </fieldset>
+  </fieldset>
 <% end %>
+
+<h2>Available Categories</h2>
+
+<ul>
+  <% Category.order(:title).each do |c| %>
+    <li><%= c.title %></li>
+  <% end %>
+</ul>
