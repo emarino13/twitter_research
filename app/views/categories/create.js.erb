@@ -1,0 +1,7 @@
+$(function () {
+  $("#new-form").fadeOut();
+
+  var html = "<%= j(render(partial: 'category', object: @category))%>";
+  $("#categories").append(html);
+
+});
