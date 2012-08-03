@@ -1,21 +1,9 @@
-<h1>Categories (<%= link_to('New', new_category_url)%>)</h1>
+<h1>
+  Categories (<%= link_to('New', new_category_url, :remote =>true)%>)
+</h1>
 
-<ul>
-  <% @categories.each do |c| %>
-    <li>
-      <span class="title">
-        <%= link_to(c.title, cateogory_url(c))%>
-      </span>
+<div id="new-form"></div>
 
-      <span class="edit">
-        <%= link_to('Edit', edit_category_url(c)) %>
-      </span>
-
-      <span class="delete">
-        <%= link_to('Delete', category_url(c)),
-            :method => :delete,
-            :confirm => 'Are you sure you want to delete?') %>
-      </span>
-    </li>
-  <% end %>
+<ul id="categories">
+  <%= render(:partial => 'category', :collection => @categories)%>
 </ul>
