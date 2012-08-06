@@ -15,14 +15,21 @@
           <li><%= link_to('My Saved Tweets', tweets_url)%></li>
           <li><%= link_to('My Categories', categories_url)%></li>
 
-       <li>
+          <li>
             <%= link_to('Log Out', destroy_user_session_url,
                         :method => :delete,
-                        :confirm => "Are you sure you want to logout?")%>
+                        :data => {:confirm => "Are you sure you want to logout?"})%>
           </li>
 
         </ul>
       </nav>
+    <% end %>
+
+    <% if !flash.empty? %>
+      <div>
+        <p><%= flash.notice %></p>
+        <p><%= flash.alert %></p>
+    </div>
     <% end %>
 
     <div id="content">
