@@ -22,7 +22,7 @@ class TweetsController < ApplicationController
 
   def update
     @tweet = current_user.tweets.find(params[:id])
-    @tweet.upadate_attributes(params[:tweet])
+    @tweet.update_attributes(params[:tweet])
     respond_with(@tweet)
   end
 end
