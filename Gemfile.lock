@@ -1,7 +1,6 @@
 GIT
   remote: https://github.com/emarino13/simple_twitter.git
-  revision: a89b25c84405a2371e51009f64cd0d7b1281f24f
-  tag: v1.0.0
+  revision: e3968797024755127f713485fdf41f64ce5178ec
   specs:
     simple_twitter (1.0.0)
       httparty (~> 0.8.3)
