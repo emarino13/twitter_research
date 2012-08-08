@@ -5,6 +5,7 @@ gem('simple_twitter',
     :git => 'https://github.com/emarino13/simple_twitter.git',
     :tag => 'v1.0.0')
 gem 'devise'
+gem 'heroku'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
